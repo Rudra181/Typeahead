@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/* ============================================================
+   shadcn/ui design tokens (neutral light theme)
+   Mapped into Tailwind v4 so the Input/Label utility classes
+   (bg-background, border-input, ring-ring, text-foreground,
+   text-muted-foreground …) actually resolve.
+   ============================================================ */
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted-foreground: #737373;
+  --input: #e5e5e5;
+  --border: #e5e5e5;
+  --ring: #0a0a0a;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #fafafa;
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(48px, 18vh, 180px) 20px 60px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-bottom: 22px;
+}
+
+/* ── Search field ── */
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ── Suggestions dropdown ── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 4px;
+  z-index: 50;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--foreground);
+}
+
+.option:hover,
+.option.active {
+  background: #f4f4f5;
+}
+
+.option-icon {
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.option-count {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.hint {
+  padding: 12px 12px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.hint.error {
+  color: #dc2626;
+}
+
+/* ── Trending ── */
+.trending {
+  width: 100%;
+  max-width: 460px;
+  margin-top: 28px;
+}
+
+.trending-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-bottom: 12px;
+}
+
+.trending-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.chip:hover {
+  background: #f4f4f5;
+  border-color: #d4d4d8;
+}

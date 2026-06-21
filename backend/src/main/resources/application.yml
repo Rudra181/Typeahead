@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/typeahead
+    username: typeahead
+    password: typeahead
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 500
+app:
+  redis:
+    nodes: redis-node-1:6379,redis-node-2:6379,redis-node-3:6379
+    ttl-seconds: 60
+  trending:
+    half-life-hours: 6
+    weight-hist: 1.0
+    weight-recent: 3.0
+  batch:
+    flush-interval-ms: 5000
+    flush-size: 500
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus

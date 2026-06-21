@@ -1,0 +1,43 @@
+# ───────────────────────── Java / Maven (backend) ─────────────────────────
+backend/target/
+**/target/
+*.class
+*.jar
+*.war
+*.log
+hs_err_pid*
+
+# ───────────────────────── Node / Vite (frontend) ─────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ───────────────────────── Python (database-loader) ───────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+# generated at load time, then deleted — never commit the dataset dump
+database-loader/dataset.csv
+dataset.csv
+
+# ───────────────────────────── Environment ────────────────────────────────
+.env
+.env.local
+*.local
+
+# ─────────────────────────────── IDE / OS ─────────────────────────────────
+.idea/
+.vscode/
+*.iml
+*.swp
+.DS_Store
+Thumbs.db
